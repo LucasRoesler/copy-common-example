@@ -1,0 +1,17 @@
+
+provider:
+  name: openfaas
+  gateway: http://127.0.0.1:8080
+
+configuration:
+  copy_extra_paths:
+    - ./common
+
+functions:
+  echo-common:
+    lang: Dockerfile
+    handler: ./echo-common
+    fprocess: python index.py
+    image: theaxer/echo-common
+    environment:
+      write_debug: true
